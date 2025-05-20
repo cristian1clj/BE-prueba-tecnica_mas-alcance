@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FakeApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('users', [FakeApiController::class, 'getUsers']);
+Route::get('posts', [FakeApiController::class, 'getPosts']);
+Route::get('albums', [FakeApiController::class, 'getAlbums']);
