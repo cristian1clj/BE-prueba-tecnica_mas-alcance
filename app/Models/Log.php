@@ -10,7 +10,6 @@ class Log extends Model
     use HasFactory;
 
     protected $fillable = [
-        'date',
         'method',
         'response',
     ];
