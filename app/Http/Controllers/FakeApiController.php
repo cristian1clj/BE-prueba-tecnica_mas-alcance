@@ -27,8 +27,16 @@ class FakeApiController extends Controller
     public function getAlbums(Request $request)
     {
         $userId = $request->query('userId');
-        return response()->json($this->api->getAll('albums', [
+        $response = $this->api->getAll('albums', [
             'userId' => $userId
-        ]));
+        ]);
+
+        if (count($response) === 0) {
+            return response()->json([
+                'error' => "No albums were found for user id: $userId"
+            ], 404);
+        }
+
+        return response()->json($response);
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
             $table->string('method');
-            $table->text('response');
+            $table->longText('response');
             $table->timestamps();
         });
     }
